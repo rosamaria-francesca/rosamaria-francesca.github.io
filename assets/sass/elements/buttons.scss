@@ -1,0 +1,28 @@
+.button {
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+
+    background: $blue;
+
+    color: $white;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1em;
+    font-weight: normal;
+
+    -webkit-transition: all 0.2s ease-in;  
+    -moz-transition: all 0.2s ease-in;  
+    -ms-transition: all 0.2s ease-in;  
+    -o-transition: all 0.2s ease-in;  
+    transition: all 0.2s ease-in;
+}
+
+.button:hover {
+    color: $white;
+    text-decoration: none;
+
+    background: $greyDark;
+}

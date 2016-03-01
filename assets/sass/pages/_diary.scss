@@ -1,0 +1,15 @@
+.page--diary .entry {
+	margin-bottom: $spacing * 3;
+}
+
+.page--diary .entry__image {
+	text-align: right;
+}
+
+.page--diary .entry__image img {
+	max-width: 350px;
+}
+
+.page--diary .entry:nth-child(even) .entry__image {
+	text-align: left;
+}

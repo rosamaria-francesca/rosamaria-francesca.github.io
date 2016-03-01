@@ -1,0 +1,646 @@
+a, abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, dl,
+dt, em, fieldset, figcaption, figure, footer, form, header, hgroup, h1, h2, h3, h4, h5, h6, html, i, iframe, img,
+ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary,
+sup, table, tbody, td, th, thead, time, tfoot, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+*,
+:before,
+:after {
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: none; }
+
+/**
+ * HTML 5
+ */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #ccc;
+  cursor: help; }
+
+/**
+ * Typography
+ */
+strong, mark, b {
+  font-weight: 400;
+  font-style: inherit; }
+
+em, i, cite, q, address, dfn, var {
+  font-style: italic;
+  font-weight: inherit; }
+
+small {
+  font-size: 0.75em; }
+
+/**
+ * Links, Images & Embedded content
+ */
+img {
+  width: 100%;
+  height: auto; }
+
+:focus {
+  outline: 0; }
+
+/**
+ * Forms
+ */
+input {
+  line-height: 1em; }
+
+input, select {
+  vertical-align: middle; }
+
+input, textarea, select {
+  margin: 0; }
+
+/**
+ * Cursors
+ */
+a, button, select {
+  cursor: pointer; }
+
+input, textarea {
+  cursor: text; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer; }
+
+/*------------------------------------*\
+    $BREAKPOINTS
+\*------------------------------------*/
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/*------------------------------------*\
+    $GRID SETUP
+\*------------------------------------*/
+/**
+ * 1. Remove any margins and paddings that might affect the grid system.
+ * 2. Apply a negative `margin-left` to negate the columns' gutters.
+ */
+.grid {
+  margin: 0;
+  /* [1] */
+  padding: 0;
+  /* [1] */
+  margin-left: -40px;
+  /* [2] */
+  position: relative; }
+
+.grid:after {
+  height: 0;
+  display: block;
+  content: "";
+  visibility: hidden;
+  clear: both; }
+
+/**
+ * Change the grid to remove padding
+ */
+.grid--full {
+  margin-left: 0; }
+
+.grid--full > .grid__item {
+  padding-left: 0; }
+
+/**
+ * Change the grid to use flexbox
+ *
+ * 1. set to flexbox display
+ * 2. center items horizontally
+ * 3. center items vertically
+ * 4. wrap items when needed
+ */
+.grid--flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /* [1] */
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* [2] */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* [3] */
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  /* [4] */ }
+
+/**
+ * Grid modifiers for flex box
+ */
+.grid--flex.grid--top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
+.grid--flex.grid--bottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end; }
+
+.grid--flex.grid--stretch {
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+
+.grid--flex.grid--stretch .grid__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.grid--flex.grid--stretch .grid__item > * {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
+
+/**
+ * 1. Cause columns to stack side-by-side.
+ * 2. Space columns apart.
+ * 3. Align columns to the tops of each other.
+ * 4. Full-width unless told to behave otherwise.
+ */
+.grid__item {
+  min-height: 1px;
+  float: left;
+  /* [1] */
+  padding-left: 40px;
+  /* [2] */
+  vertical-align: top;
+  /* [3] */
+  width: 100%;
+  /* [4] */ }
+
+/**
+ * Set the defaults of each flex item
+ *
+ * 1. Set default order for flex item
+ * 2. Remove float
+ * 3. Stop items shrinking smaller than their width (flex-basis)
+ */
+.grid--flex .grid__item {
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+      -ms-flex-order: 0;
+          order: 0;
+  /* [1] */
+  float: none;
+  /* [2] */
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  /* [3] */ }
+
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Our regular, non-responsive width classes.
+ */
+/**
+ * Whole
+ */
+.one-whole {
+  width: 100%; }
+
+/**
+ * Halves
+ */
+.one-half, .two-quarters {
+  width: 50%; }
+
+/**
+ * Thirds
+ */
+.one-third {
+  width: 33.333%; }
+
+.two-thirds {
+  width: 66.666%; }
+
+/**
+ * Quarters
+ */
+.one-quarter {
+  width: 25%; }
+
+.three-quarters {
+  width: 75%; }
+
+/**
+ * Grid modifiers for flex box ordering
+ */
+.grid--flex .order-first {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1; }
+
+.grid--flex .order-second {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1; }
+
+.grid--flex .order-third {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2; }
+
+.grid--flex .order-fourth {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3; }
+
+/**
+ * Our responsive classes.
+ */
+@media only screen and (max-width: 650px) {
+  /**
+   * Whole
+   */
+  .palm--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  .palm--one-half, .palm--two-quarters {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  .palm--one-third {
+    width: 33.333%; }
+
+  .palm--two-thirds {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  .palm--one-quarter {
+    width: 25%; }
+
+  .palm--three-quarters {
+    width: 75%; }
+
+  /**
+   * Grid modifiers for flex box ordering
+   */
+  .grid--flex .palm--order-first {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1; }
+
+  .grid--flex .palm--order-second {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  .grid--flex .palm--order-third {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  .grid--flex .palm--order-fourth {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; } }
+@media only screen and (min-width: 650px) and (max-width: 800px) {
+  /**
+   * Whole
+   */
+  .lap--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  .lap--one-half, .lap--two-quarters {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  .lap--one-third {
+    width: 33.333%; }
+
+  .lap--two-thirds {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  .lap--one-quarter {
+    width: 25%; }
+
+  .lap--three-quarters {
+    width: 75%; }
+
+  /**
+   * Grid modifiers for flex box ordering
+   */
+  .grid--flex .lap--order-first {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1; }
+
+  .grid--flex .lap--order-second {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  .grid--flex .lap--order-third {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  .grid--flex .lap--order-fourth {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; } }
+@media only screen and (min-width: 800px) {
+  /**
+   * Whole
+   */
+  .desk--one-whole {
+    width: 100%; }
+
+  /**
+   * Halves
+   */
+  .desk--one-half, .desk--two-quarters {
+    width: 50%; }
+
+  /**
+   * Thirds
+   */
+  .desk--one-third {
+    width: 33.333%; }
+
+  .desk--two-thirds {
+    width: 66.666%; }
+
+  /**
+   * Quarters
+   */
+  .desk--one-quarter {
+    width: 25%; }
+
+  .desk--three-quarters {
+    width: 75%; }
+
+  /**
+   * Grid modifiers for flex box ordering
+   */
+  .grid--flex .desk--order-first {
+    -webkit-box-ordinal-group: 0;
+    -webkit-order: -1;
+        -ms-flex-order: -1;
+            order: -1; }
+
+  .grid--flex .desk--order-second {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  .grid--flex .desk--order-third {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  .grid--flex .desk--order-fourth {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; } }
+body {
+  padding: 20px; }
+
+.wrapper {
+  max-width: 1140px;
+  margin: 0 auto; }
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  color: #b2b2b2;
+  font-weight: bold; }
+
+h1, .h1 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 38px; }
+
+h2, .h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  line-height: 32px; }
+
+h3, .h3 {
+  font-size: 22px;
+  line-height: 30px; }
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-size: 18px;
+  line-height: 26px; }
+
+a {
+  text-decoration: none;
+  color: #b2b2b2;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+a:hover {
+  color: #4d4d4d;
+  text-decoration: none; }
+
+h1 a, .h1 a,
+h2 a, .h2 a,
+h3 a, .h3 a,
+h4 a, .h4 a,
+h5 a, .h5 a,
+h6 a, .h6 a {
+  color: inherit; }
+
+p a {
+  font-style: italic; }
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 20px; }
+
+body {
+  color: #b2b2b2;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.3em; }
+
+p {
+  margin-bottom: 20px; }
+
+p:last-child {
+  margin-bottom: 0; }
+
+.large-text {
+  font-size: 1.3em;
+  line-height: 1.3em; }
+
+.button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #3277D1;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1em;
+  font-weight: normal;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+.button:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background: #4d4d4d; }
+
+label {
+  display: block; }
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b2b2b2;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 16px;
+  background: #ffffff; }
+
+textarea {
+  min-height: 100px;
+  line-height: 24px; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #3277D1; }
+
+.nav {
+  width: 100%;
+  margin-bottom: 20px; }
+
+.nav ul {
+  margin: 0;
+  list-style: none; }
+
+.nav li {
+  display: block; }
+
+.nav a {
+  padding: 10px 0 10px 35px;
+  display: block;
+  text-align: left;
+  background-image: url("../images/paw1.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 20px auto; }
+  @media screen and (min-width: 800px) {
+    .nav a {
+      padding: 40px 0 40px 75px;
+      background-size: auto; } }
+
+.nav li:nth-child(2) a,
+.nav li:nth-child(4) a {
+  background-image: url("../images/paw2.png");
+  background-size: auto 80%; }
+
+.nav a:hover {
+  text-decoration: none; }
+
+.page--home .heath {
+  max-width: 527px;
+  margin: 0 auto; }
+
+.page--hello .heath1 {
+  max-width: 200px;
+  position: absolute;
+  top: 20%;
+  left: -170px; }
+
+.page--hello .heath2 {
+  text-align: right; }
+
+.page--hello .heath2 img {
+  max-width: 300px; }
+
+.page--diary .entry {
+  margin-bottom: 60px; }
+
+.page--diary .entry__image {
+  text-align: right; }
+
+.page--diary .entry__image img {
+  max-width: 350px; }
+
+.page--diary .entry:nth-child(even) .entry__image {
+  text-align: left; }
+
+@media screen and (max-width: 650px) {
+  .page--friends .friend {
+    margin-bottom: 20px; } }
+
+.page--friends .friend--finchley h2 {
+  color: green; }
+
+.page--friends .friend--albert h2 {
+  color: blue; }

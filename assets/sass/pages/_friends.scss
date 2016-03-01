@@ -1,0 +1,13 @@
+.page--friends .friend {
+	@media screen and (max-width: $lapSize) {
+        margin-bottom: $spacing;
+    }
+}
+
+.page--friends .friend--finchley h2 {
+	color: green;
+}
+
+.page--friends .friend--albert h2 {
+	color: blue;
+}
